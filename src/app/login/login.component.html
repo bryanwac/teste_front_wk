@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="image-area">
+    <img src="/src/assets/fundo.jpg" alt="painel-login">
+  </div>
+  <div class="login-area">
+    <form [formGroup]="formulario" (ngSubmit)="loginRequest()" class="login-form">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Digite seu email">
+        <mat-error *ngIf="formulario.get('email')?.hasError('required')">O campo email é obrigatório</mat-error>
+        <mat-error *ngIf="formulario.get('email')?.hasError('minlength')">O email deve ter no mínimo 8 caracteres</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha" type="senha" placeholder="Digite sua senha">
+        <mat-error *ngIf="formulario.get('senha')?.hasError('required')">O campo senha é obrigatório</mat-error>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid || isLoggedIn">Entrar</button>
+      
+      <div class="error-message" *ngIf="isLoginFailed">{{ errorMessage }}</div>
+    </form>
+  </div>
+</div>

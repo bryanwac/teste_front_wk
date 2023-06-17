@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{alerta.name}}</h2>
+<mat-dialog-content class="mb-3" style="min-width: 300px;">
+    <div [innerHtml]="alerta.mensagem"></div>
+</mat-dialog-content>
+<mat-dialog-actions class="d-block text-right">
+    <button type="button" class="btn btn-primary mx-2" (click)="close()">
+      Ok
+    </button>
+</mat-dialog-actions>

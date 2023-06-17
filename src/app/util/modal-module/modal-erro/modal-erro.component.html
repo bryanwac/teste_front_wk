@@ -1,0 +1,24 @@
+<h2 mat-dialog-title *ngIf="erro.status === 500"> Ocorreu um erro: </h2>
+<!-- {{ erro.nome }} User essa diretiva aqui caso queira saber o nome do erro no h2 acima -->
+<h2 mat-dialog-title *ngIf="erro.status === 0">Falha de conexão</h2>
+<div mat-dialog-content class="mb-1">
+  <p class="font-weight-bold" *ngIf="erro.status === 500">
+    Seu tempo de sessão expirou, faça login novamente.
+  </p>
+  <p *ngIf="erro.status === 400 || erro.status === 409">
+    Mensagem:<br />
+    {{ erro?.error?.message || erro?.message }}
+  </p>
+  <p *ngIf="erro.status === 300">Mensagem: {{ erro.error?.mensagem }}</p>
+  <p *ngIf="erro.status === 404">Mensagem: Não encontrado</p>
+  <p *ngIf="erro.status === 0">Mensagem: Aplicação não consegue se conectar com o servidor</p>
+  <p *ngIf="erro.status === 403">Mensagem: {{ erro.error?.error || erro?.message }}</p>
+  <p *ngIf="erro.status === 104">Mensagem: {{ erro.error?.error || erro?.message }}</p>
+  <p *ngIf="erro.status === 401">Mensagem: {{ erro.error?.error || erro?.message }}</p>
+  <p *ngIf="!erro.status && erro.status !== 0">Mensagem: Faça login com uma conta válida.</p>
+</div>
+<div mat-dialog-actions class="d-block text-right">
+  <div class="button-row" style="display:flex; justify-content:center; align-itens:center; ">
+    <button type="button" class="btn btn-danger mx-2" (click)="close()">Ok</button>
+  </div>
+</div>
