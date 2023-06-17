@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
   showUserBoard = false;
   username?: string;
 
+  permissoes: any[] = [];
+
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
@@ -43,6 +45,20 @@ export class LoginComponent implements OnInit {
     .subscribe({
       next: (token: string) => {
         this.tokenStorage.saveToken(token);
+        
+        this.authService.buscaPermissoes().subscribe((permissoes) => {
+          if (permissoes) {
+            this.permissoes = permissoes;
+            const hasRole = this.permissoes.some(
+              (permissao) => permissao.nome === 'ROLE_USER'
+            );
+            if (hasRole) {
+              this.router.navigate(['/dashboard']);
+            } else {
+              this.tokenStorage.signOut();
+            }
+          }
+        });
       },
       error: (error: any) => {
         const data = error;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navegacao',
@@ -8,10 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class NavegacaoComponent implements OnInit {
   sidebarVisible = false;
   selectedItem: string | undefined;
+  shouldShowNavigation = true;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.shouldShowNavigation = !['/login', '/registro', ''].includes(event.url);
+      }
+    });
   }
 
   toggleSidebar(): void {

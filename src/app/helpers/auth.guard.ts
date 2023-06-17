@@ -26,12 +26,14 @@ export class AuthGuard implements CanActivate {
                         mensagem: 'Você não tem acesso a este módulo.'
                     };
                     this.dialog.open(ModalAlertasComponent, { data })
+                    this.router.navigate(['/login']);
                     return false;
                 }
             }),
             catchError((erro: any) => {
                 const data = erro;
                 this.dialog.open(ModalErroComponent, { data });
+                this.router.navigate(['/login']);
                 return of(false);
             })
         );

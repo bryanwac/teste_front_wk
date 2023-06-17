@@ -1,15 +1,18 @@
-<div class="toolbar" role="banner">
-  <i class="fas fa-bars" id="menu-icon" (click)="toggleSidebar()" style="margin: 2%;"></i>
-  <span style="margin-left: 10px;">APP DoaMais</span>
-</div>
+<ng-container *ngIf="shouldShowNavigation">
+  <div class="toolbar" role="banner">
+    <i class="fas fa-bars" id="menu-icon" (click)="toggleSidebar()" style="margin: 2%;"></i>
+    <span style="margin-left: 10px;">APP DoaMais</span>
+  </div>
 
-<div id="sidebar" [ngClass]="{'show': sidebarVisible}" style="margin-top: 60px;">
-  <ul>
-    <li (click)="selectItem('dashboard')" [ngClass]="{ 'selected': selectedItem === 'dashboard' }">
-      <a class="nav-link active" [routerLink]="['/painel-controle']"><i class="fas fa-dashboard" style="margin-right: 10px; margin-left: 10px;"></i>Dashboard</a>
-    </li>
-  </ul>
-</div>
+  <div id="sidebar" [ngClass]="{'show': sidebarVisible}" style="margin-top: 60px;">
+    <ul>
+      <li (click)="selectItem('dashboard')" [ngClass]="{ 'selected': selectedItem === 'dashboard' }">
+        <a class="nav-link active" [routerLink]="['/dashboard']"><i class="fas fa-dashboard"
+            style="margin-right: 10px; margin-left: 10px;"></i>Dashboard</a>
+      </li>
+    </ul>
+  </div>
+</ng-container>
 <div class="container">
   <router-outlet></router-outlet>
 </div>
