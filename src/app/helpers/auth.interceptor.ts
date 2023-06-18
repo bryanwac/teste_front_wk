@@ -10,42 +10,41 @@ import { ModalErroComponent } from '../util/modal-module/modal-erro/modal-erro.c
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   constructor(
-    private dialog:MatDialog,
+    private dialog: MatDialog,
     private tokenService: TokenStorageService,
     private router: Router
-    ) { }
+  ) { }
 
   openErroDialog(err: any) {
     this.dialog.open(ModalErroComponent, {
       data: err
-      });
+    });
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-     let authReq = req;
+    const isLoginOrRegistro = req.url.includes('/login') || req.url.includes('/registro');
+
+    if (isLoginOrRegistro) {
+      return next.handle(req);
+    }
+
+    let authReq = req;
     const token = this.tokenService.getToken();
+
     if (token) {
       authReq = req.clone({
         setHeaders: {
           'Authorization': `Bearer ${token}`,
         }
-       })
+      });
     }
-    return next.handle(authReq).pipe(catchError(err => {
-      if (err.status == 401 || err.status == 403) {
 
-          this.tokenService.signOut();
-
-      }
-      if (err.status == 500) {
-        this.tokenService;
-        this.tokenService.apagaTokenAndUser()
-        this.openErroDialog(err)
-        this.router.navigate(["login"]);
-    }
-      return throwError({ ...err, ...err.error });
-    }))
-
+    return next.handle(authReq).pipe(
+      catchError(err => {
+        this.openErroDialog(err);
+        return throwError(err);
+      })
+    );
   }
 }
 

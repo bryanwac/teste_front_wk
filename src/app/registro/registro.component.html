@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="image-area">
+    <img src="../../../assets/fundo2.jpg" alt="painel-login" style="max-width: 100%;">
+  </div>
+  <div class="registro-area">
+    <form [formGroup]="formulario" (ngSubmit)="registroRequest()" class="registro-form">
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" placeholder="Digite seu nome" autocomplete="off">
+        <mat-error *ngIf="formulario.get('nome')?.hasError('required')">O campo nome é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Sobrenome</mat-label>
+        <input matInput formControlName="sobrenome" placeholder="Digite seu sobrenome" autocomplete="off">
+        <mat-error *ngIf="formulario.get('sobrenome')?.hasError('required')">O campo sobrenome é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Digite seu email" autocomplete="off">
+        <mat-error *ngIf="formulario.get('email')?.hasError('required')">O campo email é obrigatório</mat-error>
+        <mat-error *ngIf="formulario.get('email')?.hasError('minlength')">O email deve ter no mínimo 8 caracteres</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="senha" type="password" placeholder="Digite sua senha" autocomplete="off">
+        <mat-error *ngIf="formulario.get('senha')?.hasError('required')">O campo senha é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf" placeholder="Digite seu CPF" autocomplete="off">
+        <mat-error *ngIf="formulario.get('cpf')?.hasError('required')">O campo CPF é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="telefone" placeholder="Digite seu telefone" autocomplete="off">
+        <mat-error *ngIf="formulario.get('telefone')?.hasError('required')">O campo telefone é obrigatório</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button type="submit" style="background-color: var(--cor-principal); color: white;" class="registrar-button" [disabled]="formulario.invalid">Registrar</button>
+    </form>
+  </div>
+</div>

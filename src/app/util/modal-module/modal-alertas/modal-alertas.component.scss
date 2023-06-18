@@ -1,0 +1,16 @@
+.custom-dialog-title {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .custom-dialog-content {
+    color: #666;
+    font-size: 16px;
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

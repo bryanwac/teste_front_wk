@@ -1,23 +1,29 @@
 <div class="container">
   <div class="image-area">
-    <img src="/src/assets/fundo.jpg" alt="painel-login">
+    <img src="../../../assets/fundo.jpg" alt="painel-login" style="max-width: 100%;">
   </div>
   <div class="login-area">
-    <form [formGroup]="formulario" (ngSubmit)="loginRequest()" class="login-form">
+    <form [formGroup]="formulario" class="login-form">
+      <div class="logo-area">
+        <img src="../../../assets/Logo-02.png" alt="logo" style="max-width: 100%;" class="logo-image">
+      </div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email" placeholder="Digite seu email">
+        <input matInput formControlName="email" placeholder="Digite seu email" autocomplete="off">
         <mat-error *ngIf="formulario.get('email')?.hasError('required')">O campo email é obrigatório</mat-error>
         <mat-error *ngIf="formulario.get('email')?.hasError('minlength')">O email deve ter no mínimo 8 caracteres</mat-error>
       </mat-form-field>
       
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Senha</mat-label>
-        <input matInput formControlName="senha" type="senha" placeholder="Digite sua senha">
+        <input matInput formControlName="senha" type="password" placeholder="Digite sua senha" autocomplete="off">
         <mat-error *ngIf="formulario.get('senha')?.hasError('required')">O campo senha é obrigatório</mat-error>
       </mat-form-field>
       
-      <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid || isLoggedIn">Entrar</button>
+      <button mat-raised-button style="background-color: var(--cor-secundaria); color: white;" (click)="loginRequest()" [disabled]="formulario.invalid || isLoggedIn">Entrar</button>
+
+      <button mat-raised-button style="background-color: var(--cor-principal); color: white;" (click)="redirecionarParaRegistro()">Registrar</button>
+      <mat-hint style="margin-top: -6%; font-size: small;">Ainda não possui uma conta? Registre-se</mat-hint>
       
       <div class="error-message" *ngIf="isLoginFailed">{{ errorMessage }}</div>
     </form>

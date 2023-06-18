@@ -3,6 +3,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { MatDialogModule} from '@angular/material/dialog';
 import { ModalAlertasComponent } from "./modal-alertas.component";
+import { MatButtonModule } from "@angular/material/button";
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { ModalAlertasComponent } from "./modal-alertas.component";
     CommonModule,
     HttpClientModule,
     MatDialogModule,
+    MatButtonModule,
   ],
   
 })

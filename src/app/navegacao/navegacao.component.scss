@@ -1,3 +1,7 @@
+.cor-principal {
+  color: var(--cor-principal);
+}
+
 .toolbar {
   top: 0;
   left: 0;
@@ -6,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  background-color: #80192a;
+  background-color: var(--cor-principal);
   color: white;
   font-weight: 500;
   font-size: larger;

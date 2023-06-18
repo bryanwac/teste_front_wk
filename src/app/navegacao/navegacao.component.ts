@@ -11,14 +11,12 @@ export class NavegacaoComponent implements OnInit {
   selectedItem: string | undefined;
   shouldShowNavigation = true;
 
-  constructor(
-    private router: Router,
-  ) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.shouldShowNavigation = !['/login', '/registro', ''].includes(event.url);
+        this.shouldShowNavigation = !['/login', '/registro', ''].includes(event.urlAfterRedirects);
       }
     });
   }

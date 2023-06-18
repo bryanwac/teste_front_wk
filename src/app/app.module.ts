@@ -11,6 +11,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
 import { ModalAlertasModule } from './util/modal-module/modal-alertas/modal-alertas.module';
 import { ModalErroModule } from './util/modal-module/modal-erro/modal-erro.module';
 import { DashBoardModule } from './dashboard/dashboard.module';
+import { RegistroModule } from './registro/registro.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DashBoardModule } from './dashboard/dashboard.module';
     BrowserAnimationsModule,
 
     LoginModule,
+    RegistroModule,
     NavegacaoModule,
     DashBoardModule,
 
