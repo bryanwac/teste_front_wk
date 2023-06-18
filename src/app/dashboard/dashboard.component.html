@@ -1,13 +1,18 @@
 <div class="dashboard">
-    <div class="tables-row">
-        <div class="superior-blocks">
-            <div class="statistics">
+    <div class="att-button-row">
+        <button mat-raised-button style="background-color: var(--cor-secundaria); color: white;" (click)="refreshData()" ><i class="fa-solid fa-rotate"></i> Atualizar dados</button>
+    </div>
+    <div class="statistics">
+        <div>
+            <h2>Estatísticas</h2>
+            <div class="statistics-frame">
                 <div class="dashboard-frame">
-                    <h2>Estatísticas</h2>
                     <div class="statistics-item">
                         <h3>Total de Pessoas</h3>
                         <p>{{ estatisticasCompleto?.totalPessoas }}</p>
                     </div>
+                </div>
+                <div class="dashboard-frame">
                     <div class="statistics-item">
                         <h3>Percentual de Obesos</h3>
                         <p>Homens: {{ (estatisticasCompleto?.obesosHomens / estatisticasCompleto?.totalHomens) * 100 |
@@ -19,21 +24,33 @@
                     </div>
                 </div>
             </div>
-            <div class="age-statistics">
-                <div class="dashboard-frame">
-                    <h2>Estatísticas por Tipo Sanguíneo</h2>
-                    <div class="chart">
-                        <canvas id="age-chart"></canvas>
-                    </div>
+        </div>
+    </div>
+
+    <div class="tables-row">
+        <div class="imc-statistics">
+            <div class="dashboard-frame">
+                <h2>IMC Médio por Faixa Etária</h2>
+                <div class="chart">
+                    <canvas id="imc-chart"></canvas>
                 </div>
             </div>
+        </div>
 
-            <div class="donor-relationship">
-                <div class="dashboard-frame">
-                    <h2>Relação de Doadores</h2>
-                    <div class="chart">
-                        <canvas id="donor-chart"></canvas>
-                    </div>
+        <div class="age-statistics">
+            <div class="dashboard-frame">
+                <h2>Estatísticas por Tipo Sanguíneo</h2>
+                <div class="chart">
+                    <canvas id="age-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="donor-relationship">
+            <div class="dashboard-frame">
+                <h2>Relação de Doadores</h2>
+                <div class="chart">
+                    <canvas id="donor-chart"></canvas>
                 </div>
             </div>
         </div>

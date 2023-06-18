@@ -31,6 +31,7 @@ import { NgChartsModule } from "ng2-charts";
     ModalErroModule,
 
     NgChartsModule,
+    MatButtonModule,
   ],
   exports: [
     CommonModule,
