@@ -9,6 +9,13 @@ body {
   padding: 20px;
 }
 
+.superior-blocks {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 33%;
+  gap: 2%;
+}
+
 .statistics,
 .age-statistics,
 .donor-relationship {
@@ -22,7 +29,7 @@ body {
 }
 
 .statistics-item {
-  margin-bottom: 20px;
+  margin-bottom: 26px;
 }
 
 .chart {
@@ -51,4 +58,36 @@ h3 {
 
 .chart {
   width: 100%;
+}
+
+.candidates-by-state {
+  flex-basis: 100%;
+}
+
+.candidates-by-state .table-container {
+  width: 20%;
+  flex-basis: 20%;
+}
+
+.candidates-by-state table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.candidates-by-state th,
+.candidates-by-state td {
+  border: 1px solid var(--cor-secundaria);
+  padding: 8px;
+  text-align: left;
+}
+
+.candidates-by-state th {
+  background-color: var(--cor-principal);
+  color: white;
+}
+
+.candidates-by-state th[colspan="2"] {
+  background-color: var(--cor-principal-light);
+  color: var(--cor-principal);
+  text-align: center;
 }

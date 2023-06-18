@@ -17,6 +17,10 @@ interface Estatisticas {
     tipo: string;
     possiveisDoadores: number;
   }[];
+  candidatosPorEstado: {
+    pes_estado: string,
+		quantidade: number;
+  }[];
 }
 
 
@@ -26,7 +30,10 @@ interface Estatisticas {
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+
   estatisticasCompleto: Estatisticas | undefined;
+
+  regioesBrasil: string[] = ['Norte', 'Nordeste', 'Centro-Oeste', 'Sudeste', 'Sul'];
 
   constructor(
     private dashService: DashBoardService,
@@ -108,4 +115,45 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
+  getCandidatosPorRegiao(regiao: string) {
+    return this.estatisticasCompleto?.candidatosPorEstado.filter(
+      (candidatoEstado) => this.getRegiao(candidatoEstado.pes_estado) === regiao
+    );
+  }  
+
+  getRegiao(estado: string): string {
+    const regioes = {
+      AC: 'Norte',
+      AL: 'Nordeste',
+      AM: 'Norte',
+      AP: 'Norte',
+      BA: 'Nordeste',
+      CE: 'Nordeste',
+      DF: 'Centro-Oeste',
+      ES: 'Sudeste',
+      GO: 'Centro-Oeste',
+      MA: 'Nordeste',
+      MG: 'Sudeste',
+      MS: 'Centro-Oeste',
+      MT: 'Centro-Oeste',
+      PA: 'Norte',
+      PB: 'Nordeste',
+      PE: 'Nordeste',
+      PI: 'Nordeste',
+      PR: 'Sul',
+      RJ: 'Sudeste',
+      RN: 'Nordeste',
+      RO: 'Norte',
+      RR: 'Norte',
+      RS: 'Sul',
+      SC: 'Sul',
+      SE: 'Nordeste',
+      SP: 'Sudeste',
+      TO: 'Norte'
+    };
+  
+    return regioes[estado] || '';
+  }
+  
 }
