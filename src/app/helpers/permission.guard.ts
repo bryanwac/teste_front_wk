@@ -23,9 +23,7 @@ export class PermissionGuard implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         return this.authService.buscaPermissoes().pipe(
-          map((permissoesUsuario: any[]) => {
-            console.log(permissoesUsuario);
-        
+          map((permissoesUsuario: any[]) => {       
             let possuiPermissao = false;
         
             route.data = {
