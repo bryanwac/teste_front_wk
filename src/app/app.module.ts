@@ -12,6 +12,7 @@ import { ModalAlertasModule } from './util/modal-module/modal-alertas/modal-aler
 import { ModalErroModule } from './util/modal-module/modal-erro/modal-erro.module';
 import { DashBoardModule } from './dashboard/dashboard.module';
 import { RegistroModule } from './registro/registro.module';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { RegistroModule } from './registro/registro.module';
     ModalAlertasModule,
     ModalErroModule,
   ],
-  providers: [],
+  providers: [
+    authInterceptorProviders,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -43,22 +43,11 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(loginRequest)
     .subscribe({
-      next: (token: string) => {
-        this.tokenStorage.saveToken(token);
-        
-        this.authService.buscaPermissoes().subscribe((permissoes) => {
-          if (permissoes) {
-            this.permissoes = permissoes;
-            const hasRole = this.permissoes.some(
-              (permissao) => permissao.nome === 'ROLE_USER'
-            );
-            if (hasRole) {
-              this.router.navigate(['/dashboard']);
-            } else {
-              this.tokenStorage.signOut();
-            }
-          }
-        });
+      next: (auth) => {
+        this.tokenStorage.saveToken(auth.token);
+        // A camada de segurança e autenticação garante que
+        // o proximo passo será dado apenas se o usuário possuir permissão de acesso
+        this.router.navigate(['/dashboard']);
       },
       error: (error: any) => {
         const data = error;
