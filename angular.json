@@ -30,11 +30,14 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/chart.js/dist/Chart.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,10 +98,13 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/chart.js/dist/Chart.css",
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js"
+            ]
           }
         }
       }

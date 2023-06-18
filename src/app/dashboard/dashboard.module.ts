@@ -11,7 +11,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { BrowserModule } from "@angular/platform-browser";
 import { DashboardComponent } from "./dashboard.component";
+import { NgChartsModule } from "ng2-charts";
 
 
 @NgModule({
@@ -19,15 +21,16 @@ import { DashboardComponent } from "./dashboard.component";
     DashboardComponent,
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    
+    MatDialogModule,
+
     DashBoardRoutingModule,
 
     ModalErroModule,
-    
+
+    NgChartsModule,
   ],
   exports: [
     CommonModule,

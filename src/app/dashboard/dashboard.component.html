@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <div class="statistics">
+        <div class="dashboard-frame">
+            <h2>Estatísticas</h2>
+            <div class="statistics-item">
+                <h3>Total de Pessoas</h3>
+                <p>{{ estatisticasCompleto?.totalPessoas }}</p>
+            </div>
+            <div class="statistics-item">
+                <h3>Percentual de Obesos</h3>
+                <p>Homens: {{ (estatisticasCompleto?.obesosHomens / estatisticasCompleto?.totalHomens) * 100 | number:
+                    '1.0-2' }}%</p>
+                <p>Mulheres: {{ (estatisticasCompleto?.obesosMulheres / estatisticasCompleto?.totalMulheres) * 100 |
+                    number: '1.0-2' }}%</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="tables-row">
+        <div class="age-statistics">
+            <div class="dashboard-frame">
+                <h2>Estatísticas por Tipo Sanguíneo</h2>
+                <div class="chart">
+                    <canvas id="age-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="donor-relationship">
+            <div class="dashboard-frame">
+                <h2>Relação de Doadores</h2>
+                <div class="chart">
+                    <canvas id="donor-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
