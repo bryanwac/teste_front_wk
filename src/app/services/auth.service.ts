@@ -21,10 +21,10 @@ export class AuthService {
   ) { }
 
   login(request: any): Observable<any> {
-    return this.http.post(AUTH_API + '/login', { request });
+    return this.http.post(AUTH_API + '/login', request );
   }
   registro(request: any): Observable<any> {
-    return this.http.post(AUTH_API + '/registro', { request });
+    return this.http.post(AUTH_API + '/registro', request );
   }
   buscaPermissoes(): Observable<any> {
     return this.http.get(AUTH_API + '/permissoes')
