@@ -34,15 +34,15 @@
 
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf" placeholder="Digite seu CPF" autocomplete="off">
+        <input matInput formControlName="cpf" placeholder="Digite seu CPF" autocomplete="off" mask="000.000.000-00">
         <mat-error *ngIf="formulario.get('cpf')?.hasError('required')">O campo CPF é obrigatório</mat-error>
       </mat-form-field>
-
+      
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Telefone</mat-label>
-        <input matInput formControlName="telefone" placeholder="Digite seu telefone" autocomplete="off">
+        <input matInput formControlName="telefone" placeholder="Digite seu telefone" autocomplete="off" mask="(00) 0000-0000">
         <mat-error *ngIf="formulario.get('telefone')?.hasError('required')">O campo telefone é obrigatório</mat-error>
-      </mat-form-field>
+      </mat-form-field>      
 
       <button mat-raised-button type="submit" style="background-color: var(--cor-principal); color: white;" class="registrar-button" [disabled]="formulario.invalid">Registrar</button>
     </form>

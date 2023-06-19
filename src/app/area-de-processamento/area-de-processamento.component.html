@@ -1,13 +1,7 @@
-<div class="container-wait" *ngIf="processingContent">
-  <span *ngIf="processingContent" class="processing-text">Aguarde enquanto processamos o conteúdo inserido...</span>
-  <mat-spinner *ngIf="processingContent" diameter="24" color="primary"></mat-spinner>
-</div>
 <div class="container" *ngIf="!processingContent">
   <mat-card class="upload-card">
     <mat-card-content>
       <h2>Upload de Arquivo JSON</h2>
-
-      <!-- Upload de Arquivo JSON -->
       <input type="file" id="fileInput" (change)="handleFileInput($event)" accept=".json" />
       <div class="button-row">
         <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }" (click)="removeFile()"
@@ -28,11 +22,41 @@
       <textarea [(ngModel)]="jsonContent" matInput></textarea>
       <div class="button-row">
         <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }"
-        style="background-color: var(--cor-principal); color: white;" [disabled]="isButtonDisabled()"
-        (click)="processarConteudo()">
-        <i class="fa fa-upload" aria-hidden="true"></i> Processar Conteúdo
-      </button>
+          style="background-color: var(--cor-principal); color: white;" [disabled]="isButtonDisabled()"
+          (click)="processarConteudo()">
+          <i class="fa fa-upload" aria-hidden="true"></i> Processar Conteúdo
+        </button>
       </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="container" *ngIf="!processingContent">
+  <mat-card class="info-card" style="width: 100%;">
+    <mat-card-content class="info-card-content">
+      <h2>Informações</h2>
+      <p>Após envio do conteúdo, as tabelas e informações do componente dashboard serão preenchidas.</p>
+      <div class="button-row">
+        <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }" [routerLink]="['/dashboard']"
+          style="background-color: var(--cor-principal); color: white;">
+          Acessar Dashboard <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="container-wait" *ngIf="processingContent">
+  <mat-card class="waiting-card" style="width: 100%;">
+    <mat-card-content class="content-waiting-card">
+      <span *ngIf="processingContent" class="processing-text">Aguarde enquanto processamos o conteúdo inserido...</span>
+      <mat-spinner *ngIf="processingContent" diameter="24" color="primary"></mat-spinner>
+      <span>
+        <p>Dica: Ao finalizar o processamento dos dados, acesse a área DashBoard para visualizar as estatísticas
+          atualizadas.</p>
+        <p>Dica: Não serão inseridas pessoas duplicadas em nosso sistema.</p>
+
+      </span>
     </mat-card-content>
   </mat-card>
 </div>

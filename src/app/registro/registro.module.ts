@@ -12,12 +12,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { RegistroComponent } from "./registro.component";
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [
     RegistroComponent,
   ],
   imports: [
+
+    NgxMaskModule.forRoot(),
+
     CommonModule,
     HttpClientModule,
     FormsModule,
@@ -36,8 +42,8 @@ import { RegistroComponent } from "./registro.component";
   exports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,   
-
+    ReactiveFormsModule,  
+    
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
