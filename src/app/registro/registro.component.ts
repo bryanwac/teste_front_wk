@@ -49,12 +49,10 @@ export class RegistroComponent implements OnInit {
     .subscribe({
       next: (_) => {
         const data = {
-          message: 'Cadastro realizado, encaminhando para tela de Login...'
+          mensagem: 'Cadastro realizado, faça Login...'
         }
         this.dialog.open(ModalAlertasComponent, { data })
-        this.router.navigate(['/login'])
-        
-        
+        this.router.navigate(['/login'])        
       },
       error: (error: any) => {
         const data = error;

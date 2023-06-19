@@ -15,7 +15,18 @@
   font-weight: 500;
   font-size: larger;
   position: relative;
-  z-index: 2; /* Valor maior do que os elementos no router-outlet */
+  z-index: 2;
+}
+
+.logout-icon {
+  width: 85%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.logout-button {
+  background-color: var(--cor-principal);
+  color: white;
 }
 
 #sidebar {
@@ -26,7 +37,7 @@
   height: 100vh;
   background-color: #f1f1f1;
   transition: left 0.3s ease;
-  z-index: 1; /* Valor menor do que a barra de navegação */
+  z-index: 1;
 }
 
 #sidebar.show {
@@ -66,4 +77,42 @@
 
 .sidebar-item:hover {
   background-color: #e8e8e8;
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    height: 50px;
+    font-size: medium;
+    padding: 1%;
+  }
+
+  .logout-icon {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  #sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    left: -1000px;
+    transition: left 0.3s ease;
+  }
+
+  #sidebar.show {
+    left: 0px;
+  }
+
+  #sidebar ul li {
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  .container {
+    padding-top: 60px;
+  }
+
+  .logout-icon{
+    padding: 4%;
+  }
 }
