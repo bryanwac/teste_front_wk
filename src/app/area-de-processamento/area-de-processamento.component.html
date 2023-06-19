@@ -26,11 +26,13 @@
     <mat-card-content>
       <h2>Adicionar Conteúdo JSON</h2>
       <textarea [(ngModel)]="jsonContent" matInput></textarea>
-      <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }"
+      <div class="button-row">
+        <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }"
         style="background-color: var(--cor-principal); color: white;" [disabled]="isButtonDisabled()"
         (click)="processarConteudo()">
         <i class="fa fa-upload" aria-hidden="true"></i> Processar Conteúdo
       </button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>

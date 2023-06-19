@@ -13,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { RegistroComponent } from "./registro.component";
 
-
 @NgModule({
   declarations: [
     RegistroComponent,
@@ -37,13 +36,14 @@ import { RegistroComponent } from "./registro.component";
   exports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,   
+
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
     MatDialogModule,
     MatIconModule,
     MatCardModule,
-  ]
+  ]  
 })
 export class RegistroModule { }

@@ -1,6 +1,6 @@
 <div class="dashboard">
     <div class="att-button-row">
-        <button mat-raised-button style="background-color: var(--cor-secundaria); color: white;" (click)="refreshData()" ><i class="fa-solid fa-rotate"></i> Atualizar dados</button>
+        <button mat-raised-button style="background-color: var(--cor-principal); color: white;" (click)="refreshData()" ><i class="fa-solid fa-rotate"></i> Atualizar dados</button>
     </div>
     <div class="statistics">
         <div>
@@ -54,33 +54,32 @@
                 </div>
             </div>
         </div>
-
-        <div class="candidates-by-state">
-            <div class="dashboard-frame tables-regiao-container">
-                <h2>Candidatos por Região/Estado</h2>
-                <div class="tables-regiao" style="display: flex; flex-direction: row; gap: 10px; align-items: flex-start;">
-                    <ng-container *ngFor="let regiao of regioesBrasil">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="2">{{ regiao }}</th>
-                                </tr>
-                            </thead>
-                            <thead>
-                                <tr>
-                                    <th rowspan="1">Estado</th>
-                                    <th rowspan="1">Quantidade</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let candidatoEstado of getCandidatosPorRegiao(regiao)">
-                                    <td>{{ candidatoEstado.pes_estado }}</td>
-                                    <td>{{ candidatoEstado.quantidade }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </ng-container>
-                </div>
+    </div>
+    <div class="candidates-by-state">
+        <div class="dashboard-frame tables-regiao-container">
+            <h2>Candidatos por Região/Estado</h2>
+            <div class="tables-regiao">
+                <ng-container *ngFor="let regiao of regioesBrasil">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">{{ regiao }}</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th rowspan="1">Estado</th>
+                                <th rowspan="1">Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let candidatoEstado of getCandidatosPorRegiao(regiao)">
+                                <td>{{ candidatoEstado.pes_estado }}</td>
+                                <td>{{ candidatoEstado.quantidade }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-container>
             </div>
         </div>
     </div>

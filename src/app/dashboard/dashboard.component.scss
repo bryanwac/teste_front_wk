@@ -75,6 +75,13 @@ h3 {
   border-collapse: collapse;
 }
 
+.tables-regiao {
+  display: flex; 
+  flex-direction: row; 
+  gap: 10px; 
+  align-items: flex-start;
+}
+
 .candidates-by-state th,
 .candidates-by-state td {
   border: 1px solid var(--cor-secundaria);
@@ -93,3 +100,42 @@ h3 {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .dashboard-frame {
+    width: 300px;
+  }
+
+  .imc-statistics,
+  .age-statistics,
+  .donor-relationship {
+    flex-basis: 100%;
+  }
+
+  .statistics {
+    margin-top: -20%;
+  }
+
+  .att-button-row {
+    top: 10%;
+    right: 5%;
+  }
+
+  .tables-row {
+    flex-direction: column;
+  }
+
+  .tables-regiao {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .candidates-by-state .table-container {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}

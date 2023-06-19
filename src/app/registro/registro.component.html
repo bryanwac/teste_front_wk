@@ -4,7 +4,9 @@
   </div>
   <div class="registro-area">
     <form [formGroup]="formulario" (ngSubmit)="registroRequest()" class="registro-form">
-
+      <div class="texto-superior">
+        <h1>Cadastro</h1>
+      </div>
       <mat-form-field appearance="outline" class="form-field">
         <mat-label>Nome</mat-label>
         <input matInput formControlName="nome" placeholder="Digite seu nome" autocomplete="off">

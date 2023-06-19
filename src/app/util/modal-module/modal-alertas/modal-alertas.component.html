@@ -1,6 +1,6 @@
-<h2 mat-dialog-title class="custom-dialog-title">{{ alerta.name }}</h2>
+<h2 mat-dialog-title class="custom-dialog-title">{{ alerta?.name }}</h2>
 <mat-dialog-content class="mb-3" style="min-width: 300px;">
-  <div [innerHTML]="alerta.mensagem" class="custom-dialog-content"></div>
+  <div [innerHTML]="alerta?.mensagem" class="custom-dialog-content"></div>
 </mat-dialog-content>
 <mat-dialog-actions class="d-flex text-right">
   <button type="button" mat-button class="mat-primary mx-2" style="background-color: var(--cor-principal); color: white;" (click)="close()">Ok</button>
