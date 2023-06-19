@@ -72,6 +72,9 @@ Ao acessar o aplicativo no navegador, você será apresentado ao dashboard, que 
 
 4. Você pode repetir o processo para fornecer novos dados e obter resultados atualizados.
 
+## ATENÇÃO
+Usuários repetidos não serão criados, há uma verificação que impede inserção de usuários com dados repetidos.
+
 ## Contribuição
 
 Contribuições para aprimorar o aplicativo são bem-vindas. Se você encontrar problemas ou tiver sugestões de melhorias, sinta-se à
