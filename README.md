@@ -1,27 +1,81 @@
-# TesteFrontWk
+# Banco de Sangue App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+Este é um aplicativo desenvolvido para processar dados de candidatos a doadores de sangue fornecidos por uma agência de banco de sangue. O aplicativo extrai informações relevantes dos dados e apresenta os resultados de forma organizada em tabelas e gráficos.
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O aplicativo possui duas principais funcionalidades:
 
-## Code scaffolding
+1. **Dashboard:** O dashboard exibe os resultados em forma de tabelas e gráficos para facilitar a compreensão dos dados. As seguintes informações são apresentadas:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+   - Quantidade de candidatos por estado do Brasil.
+   - IMC médio em cada faixa de idade de dez em dez anos.
+   - Percentual de obesos entre homens e mulheres.
+   - Média de idade para cada tipo sanguíneo.
+   - Quantidade de possíveis doadores para cada tipo sanguíneo receptor.
 
-## Build
+2. **Área de Processamento de Dados/Arquivos:** Esta área permite ao usuário fornecer um arquivo JSON contendo os dados dos candidatos ou inserir diretamente o conteúdo formatado do arquivo. O aplicativo processa esses dados e exibe os resultados no dashboard.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Pré-requisitos
 
-## Running unit tests
+Antes de executar o aplicativo, certifique-se de ter os seguintes requisitos instalados em sua máquina:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js (versão 12 ou superior)
+- npm (gerenciador de pacotes do Node.js)
 
-## Running end-to-end tests
+## Instalação
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Siga as etapas abaixo para executar o aplicativo:
 
-## Further help
+1. Clone o repositório do aplicativo para o seu ambiente local.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```shell
+git clone https://github.com/bryanwac/teste_front_wk.git
+```
+
+2. Execute o aplicativo com a IDE de sua preferência.
+
+3. Instale as dependências do projeto usando o npm.
+
+```shell
+npm install
+```
+
+## Executando o Aplicativo
+
+Após a conclusão da instalação, você pode executar o aplicativo da seguinte maneira:
+
+1. Inicie o servidor de desenvolvimento.
+
+```shell
+ng serve
+```
+
+2. O aplicativo será executado localmente e estará acessível em seu navegador no seguinte endereço:
+
+```
+http://localhost:4200
+```
+
+## Uso do Aplicativo
+
+Ao acessar o aplicativo no navegador, você será apresentado ao dashboard, que exibirá os resultados iniciais como tabelas e gráficos vazios. Para preencher os dados e visualizar os resultados, siga as etapas abaixo:
+
+1. Na área de processamento de dados/arquivos, você tem duas opções:
+
+   - **Enviar arquivo JSON:** Clique no botão "Escolher arquivo" e selecione um arquivo JSON contendo os dados dos candidatos.
+   - **Inserir conteúdo formatado:** Insira diretamente o conteúdo formatado do arquivo JSON na caixa de texto.
+
+2. Após enviar o arquivo ou inserir o conteúdo, clique no botão "Processar Dados" para processar as informações.
+
+3. Os resultados serão exibidos no dashboard em forma de tabelas e gráficos, fornecendo as informações solicitadas.
+
+4. Você pode repetir o processo para fornecer novos dados e obter resultados atualizados.
+
+## Contribuição
+
+Contribuições para aprimorar o aplicativo são bem-vindas. Se você encontrar problemas ou tiver sugestões de melhorias, sinta-se à
+
+ vontade para abrir uma issue no repositório ou enviar um pull request.
+
+Esperamos que o aplicativo seja útil para processar e visualizar os dados dos candidatos a doadores de sangue.

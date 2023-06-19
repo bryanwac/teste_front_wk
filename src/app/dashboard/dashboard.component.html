@@ -1,0 +1,86 @@
+<div class="dashboard">
+    <div class="att-button-row">
+        <button mat-raised-button style="background-color: var(--cor-principal); color: white;" (click)="refreshData()" ><i class="fa-solid fa-rotate"></i> Atualizar dados</button>
+    </div>
+    <div class="statistics">
+        <div>
+            <h2>Estatísticas</h2>
+            <div class="statistics-frame">
+                <div class="dashboard-frame">
+                    <div class="statistics-item">
+                        <h3>Total de Pessoas</h3>
+                        <p>{{ estatisticasCompleto?.totalPessoas }}</p>
+                    </div>
+                </div>
+                <div class="dashboard-frame">
+                    <div class="statistics-item">
+                        <h3>Percentual de Obesos</h3>
+                        <p>Homens: {{ (estatisticasCompleto?.obesosHomens / estatisticasCompleto?.totalHomens) * 100 |
+                            number:
+                            '1.0-2' }}%</p>
+                        <p>Mulheres: {{ (estatisticasCompleto?.obesosMulheres / estatisticasCompleto?.totalMulheres) *
+                            100 |
+                            number: '1.0-2' }}%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tables-row">
+        <div class="imc-statistics">
+            <div class="dashboard-frame">
+                <h2>IMC Médio por Faixa Etária</h2>
+                <div class="chart">
+                    <canvas id="imc-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="age-statistics">
+            <div class="dashboard-frame">
+                <h2>Estatísticas por Tipo Sanguíneo</h2>
+                <div class="chart">
+                    <canvas id="age-chart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="donor-relationship">
+            <div class="dashboard-frame">
+                <h2>Relação de Doadores</h2>
+                <div class="chart">
+                    <canvas id="donor-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="candidates-by-state">
+        <div class="dashboard-frame tables-regiao-container">
+            <h2>Candidatos por Região/Estado</h2>
+            <div class="tables-regiao">
+                <ng-container *ngFor="let regiao of regioesBrasil">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">{{ regiao }}</th>
+                            </tr>
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th rowspan="1">Estado</th>
+                                <th rowspan="1">Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let candidatoEstado of getCandidatosPorRegiao(regiao)">
+                                <td>{{ candidatoEstado.pes_estado }}</td>
+                                <td>{{ candidatoEstado.quantidade }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

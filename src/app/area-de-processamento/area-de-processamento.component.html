@@ -1,0 +1,38 @@
+<div class="container-wait" *ngIf="processingContent">
+  <span *ngIf="processingContent" class="processing-text">Aguarde enquanto processamos o conteúdo inserido...</span>
+  <mat-spinner *ngIf="processingContent" diameter="24" color="primary"></mat-spinner>
+</div>
+<div class="container" *ngIf="!processingContent">
+  <mat-card class="upload-card">
+    <mat-card-content>
+      <h2>Upload de Arquivo JSON</h2>
+
+      <!-- Upload de Arquivo JSON -->
+      <input type="file" id="fileInput" (change)="handleFileInput($event)" accept=".json" />
+      <div class="button-row">
+        <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }" (click)="removeFile()"
+          [disabled]="isButtonDisabled()" style="background-color: var(--cor-principal); color: white;">
+          <i class="fa fa-trash" aria-hidden="true"></i> Remover arquivo
+        </button>
+        <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }" (click)="processarArquivo()"
+          [disabled]="isButtonDisabled()" style="background-color: var(--cor-principal); color: white;">
+          <i class="fa fa-upload" aria-hidden="true"></i> Processar Arquivo
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="content-card">
+    <mat-card-content>
+      <h2>Adicionar Conteúdo JSON</h2>
+      <textarea [(ngModel)]="jsonContent" matInput></textarea>
+      <div class="button-row">
+        <button mat-raised-button [ngClass]="{ 'disabled-button': isButtonDisabled() }"
+        style="background-color: var(--cor-principal); color: white;" [disabled]="isButtonDisabled()"
+        (click)="processarConteudo()">
+        <i class="fa fa-upload" aria-hidden="true"></i> Processar Conteúdo
+      </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
