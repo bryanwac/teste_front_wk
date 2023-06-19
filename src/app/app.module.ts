@@ -13,6 +13,7 @@ import { ModalErroModule } from './util/modal-module/modal-erro/modal-erro.modul
 import { DashBoardModule } from './dashboard/dashboard.module';
 import { RegistroModule } from './registro/registro.module';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { AreaDeProcessamentoModule } from './area-de-processamento/area-de-processamento.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     RegistroModule,
     NavegacaoModule,
     DashBoardModule,
+    AreaDeProcessamentoModule,
 
     ModalAlertasModule,
     ModalErroModule,

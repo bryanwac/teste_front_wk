@@ -58,7 +58,7 @@
         <div class="candidates-by-state">
             <div class="dashboard-frame tables-regiao-container">
                 <h2>Candidatos por Região/Estado</h2>
-                <div class="tables-regiao" style="display: flex; flex-direction: row; gap: 10px;">
+                <div class="tables-regiao" style="display: flex; flex-direction: row; gap: 10px; align-items: flex-start;">
                     <ng-container *ngFor="let regiao of regioesBrasil">
                         <table>
                             <thead>
@@ -68,8 +68,8 @@
                             </thead>
                             <thead>
                                 <tr>
-                                    <th>Estado</th>
-                                    <th>Quantidade</th>
+                                    <th rowspan="1">Estado</th>
+                                    <th rowspan="1">Quantidade</th>
                                 </tr>
                             </thead>
                             <tbody>

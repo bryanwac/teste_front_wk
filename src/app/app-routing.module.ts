@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PermissionGuard } from './helpers/permission.guard';
 import { RegistroComponent } from './registro/registro.component';
+import { AreaDeProcessamentoComponent } from './area-de-processamento/area-de-processamento.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,14 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard, PermissionGuard],
+    data: {
+      roles: ["ROLE_USER"]
+    }
+  },
+  {
+    path: 'processamento',
+    component: AreaDeProcessamentoComponent,
     canActivate: [AuthGuard, PermissionGuard],
     data: {
       roles: ["ROLE_USER"]
