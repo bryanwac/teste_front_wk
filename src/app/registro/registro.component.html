@@ -3,7 +3,7 @@
     <img src="../../../assets/fundo2.jpg" alt="painel-login" style="max-width: 100%;">
   </div>
   <div class="registro-area">
-    <form [formGroup]="formulario" (ngSubmit)="registroRequest()" class="registro-form">
+    <form [formGroup]="formulario" (ngSubmit)="registroRequest()" class="registro-form" ngNativeValidate>
       <div class="texto-superior">
         <h1>Cadastro</h1>
       </div>
@@ -44,7 +44,7 @@
         <mat-error *ngIf="formulario.get('telefone')?.hasError('required')">O campo telefone é obrigatório</mat-error>
       </mat-form-field>      
 
-      <button mat-raised-button type="submit" style="background-color: var(--cor-principal); color: white;" class="registrar-button" [disabled]="formulario.invalid">Registrar</button>
+      <button mat-raised-button type="submit" style="background-color: var(--cor-principal); color: white;" class="registrar-button" >Registrar</button>
     </form>
   </div>
 </div>
