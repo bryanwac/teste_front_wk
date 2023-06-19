@@ -42,6 +42,16 @@ export class RegistroComponent implements OnInit {
   }
 
   registroRequest(): void {
+    if (this.formulario.invalid) {
+      Object.keys(this.formulario.controls).forEach(key => {
+        const control = this.formulario.get(key);
+        if (control?.invalid && control?.errors?.['required'] && control?.value === '') {
+          control.setErrors({ required: true });
+        }
+      });
+      return;
+    }
+
     const registroRequest = this.formulario.value;
     console.log(registroRequest)
 
