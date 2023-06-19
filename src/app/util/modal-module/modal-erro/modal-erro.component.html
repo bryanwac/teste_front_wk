@@ -1,24 +1,34 @@
-<h2 mat-dialog-title *ngIf="erro.status === 500"> Ocorreu um erro: </h2>
-<!-- {{ erro.nome }} User essa diretiva aqui caso queira saber o nome do erro no h2 acima -->
-<h2 mat-dialog-title *ngIf="erro.status === 0">Falha de conexão</h2>
-<div mat-dialog-content class="mb-1">
-  <p class="font-weight-bold" *ngIf="erro.status === 500">
-    Seu tempo de sessão expirou, faça login novamente.
-  </p>
-  <p *ngIf="erro.status === 400 || erro.status === 409">
-    Mensagem:<br />
-    {{ erro?.error?.message || erro?.message }}
-  </p>
-  <p *ngIf="erro.status === 300">Mensagem: {{ erro.error?.mensagem }}</p>
-  <p *ngIf="erro.status === 404">Mensagem: Não encontrado</p>
-  <p *ngIf="erro.status === 0">Mensagem: Aplicação não consegue se conectar com o servidor</p>
-  <p *ngIf="erro.status === 403">Mensagem: {{ erro.error?.error || erro?.message }}</p>
-  <p *ngIf="erro.status === 104">Mensagem: {{ erro.error?.error || erro?.message }}</p>
-  <p *ngIf="erro.status === 401">Mensagem: {{ erro.error?.error || erro?.message }}</p>
-  <p *ngIf="!erro.status && erro.status !== 0">Mensagem: Faça login com uma conta válida.</p>
-</div>
-<div mat-dialog-actions class="d-block text-right">
-  <div class="button-row" style="display:flex; justify-content:center; align-itens:center; ">
-    <button type="button" class="btn btn-danger mx-2" (click)="close()">Ok</button>
-  </div>
+<div class="container">
+  <h2 mat-dialog-title *ngIf="erro.status === 500" class="mat-primary">Ocorreu um erro:</h2>
+  <h2 mat-dialog-title *ngIf="erro.status === 0" class="mat-warn">Falha de conexão</h2>
+
+  <mat-dialog-content class="mb-1">
+    <p class="font-weight-bold" *ngIf="erro.status === 500">
+      Seu tempo de sessão expirou, faça login novamente.
+    </p>
+    <p *ngIf="erro.status === 400 || erro.status === 409">
+      Mensagem:<br />
+      <ng-container *ngIf="erro?.error?.message || erro?.message">
+        <ng-container *ngIf="erro?.error?.message.length <= 35; else longErrorMessage">
+          {{ erro?.error?.message || erro?.message }}
+        </ng-container>
+        <ng-template #longErrorMessage>
+          <span matTooltip="{{ erro?.error?.message || erro?.message }}">
+            {{ erro?.error?.message || erro?.message | slice:0:35 }}...
+          </span>
+        </ng-template>
+      </ng-container>
+    </p>
+    <p *ngIf="erro.status === 300">Mensagem: <br> {{ erro.error?.mensagem }}</p>
+    <p *ngIf="erro.status === 404">Mensagem: <br> Não encontrado</p>
+    <p *ngIf="erro.status === 0">Mensagem: <br> Aplicação não consegue se conectar com o servidor</p>
+    <p *ngIf="erro.status === 403">Mensagem: <br> {{ erro.error?.error || erro?.message }}</p>
+    <p *ngIf="erro.status === 104">Mensagem: <br> {{ erro.error?.error || erro?.message }}</p>
+    <p *ngIf="erro.status === 401">Mensagem: <br> Sessão expirada, faça login.</p>
+    <p *ngIf="!erro.status && erro.status !== 0">Mensagem: <br> Faça login com uma conta válida.</p>
+  </mat-dialog-content>
+
+  <mat-dialog-actions class="button-row">
+    <button mat-raised-button color="warn" class="mx-2" (click)="close()">Ok</button>
+  </mat-dialog-actions>
 </div>

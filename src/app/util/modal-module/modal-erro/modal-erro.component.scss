@@ -1,13 +1,17 @@
-.bg-blue{
-    background-color: #3A65C6;
-    color: white;
-    border-radius: 9px;
-    border-color: #3A65C6;
-    right: auto;
+.mat-primary {
+    color: var(--cor-principal);
 }
+
+.mat-warn {
+    color: white;
+}
+
 .button-row {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.mat-dialog-content {
+    overflow: hidden;
 }
