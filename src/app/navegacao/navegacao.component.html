@@ -9,14 +9,18 @@
 
   <div id="sidebar" [ngClass]="{'show': sidebarVisible}" style="margin-top: 60px;">
     <ul>
-      <li (click)="selectItem('dashboard')" [ngClass]="{ 'selected': selectedItem === 'dashboard' }" class="sidebar-item">
-        <a class="nav-link active" [routerLink]="['/dashboard']"><i class="fas fa-dashboard" style="margin-right: 10px; margin-left: 10px;"></i>Dashboard</a>
+      <li (click)="selectItem('dashboard')" [ngClass]="{ 'selected': selectedItem === 'dashboard' }"
+        class="sidebar-item">
+        <a class="nav-link active" [routerLink]="['/dashboard']"><i class="fas fa-dashboard"
+            style="margin-right: 10px; margin-left: 10px;"></i>Dashboard</a>
       </li>
-      <li (click)="selectItem('processamento')" [ngClass]="{ 'selected': selectedItem === 'processamento' }" class="sidebar-item">
-        <a class="nav-link active" [routerLink]="['/processamento']"><i class="fas fa-file" style="margin-right: 10px; margin-left: 10px;"></i>Área de processamento</a>
+      <li (click)="selectItem('processamento')" [ngClass]="{ 'selected': selectedItem === 'processamento' }"
+        class="sidebar-item">
+        <a class="nav-link active" [routerLink]="['/processamento']"><i class="fas fa-file"
+            style="margin-right: 10px; margin-left: 10px;"></i>Área de processamento</a>
       </li>
     </ul>
-  </div>  
+  </div>
 </ng-container>
 
 <div class="container">

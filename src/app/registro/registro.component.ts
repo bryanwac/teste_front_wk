@@ -18,8 +18,8 @@ export class RegistroComponent implements OnInit {
 	  sobrenome : new FormControl(null, [Validators.required]),
     email: new FormControl(null,[Validators.required, Validators.minLength(8)]),
     senha: new FormControl(null, [Validators.required]),
-	  cpf : new FormControl(null, [Validators.required]),
-	  telefone : new FormControl(null, [Validators.required]),
+	  cpf : new FormControl('', [Validators.required]),
+	  telefone : new FormControl('', [Validators.required]),
   })
 
   errorMessage = '';
