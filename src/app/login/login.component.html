@@ -20,10 +20,12 @@
         <mat-error *ngIf="formulario.get('senha')?.hasError('required')">O campo senha é obrigatório</mat-error>
       </mat-form-field>
       
-      <button mat-raised-button style="background-color: var(--cor-secundaria); color: white;" (click)="loginRequest()" [disabled]="formulario.invalid || isLoggedIn">Entrar</button>
+      <button mat-raised-button style="background-color: var(--cor-principal); color: white;" (click)="loginRequest()" [disabled]="formulario.invalid || isLoggedIn">Entrar</button>
 
-      <button mat-raised-button style="background-color: var(--cor-principal); color: white;" (click)="redirecionarParaRegistro()">Registrar</button>
-      <mat-hint style="margin-top: -6%; font-size: small;">Ainda não possui uma conta? Registre-se</mat-hint>
+      <button mat-raised-button style="background-color: var(--cor-secundaria); color: white;" (click)="redirecionarParaRegistro()">Registrar</button>
+      <div class="texto-area-login">
+        <mat-hint style="margin-top: 1%; font-size: small;">Ainda não possui uma conta? Registre-se</mat-hint>
+      </div>
       
       <div class="error-message" *ngIf="isLoginFailed">{{ errorMessage }}</div>
     </form>
